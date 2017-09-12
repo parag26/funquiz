@@ -1,0 +1,47 @@
+<div class="row">
+    <div *ngIf='quiz'>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h1 class="panel-title"><strong>{{quiz.name}}</strong></h1>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img class="img-responsive" src="http://image.tmdb.org/t/p/w500/{{quiz.profile_path}}" height="500" width="500">
+                        <a class="btn btn-default btn-block" target="_blank" href="{{quiz.homepage}}"><strong><h3>View Website</h3></strong></a>
+                    </div>
+                    <div class="col-md-8">
+                        <h3 class="title"><strong>Place of Birth</strong></h3>
+                        <h4>{{quiz.place_of_birth}}</h4>
+                        <h3 class="title"><strong>Quiz</strong></h3>
+
+                        <div *ngIf="show; else elseBlock">
+                            <div class="q1">
+                                <h3 class="title"><strong>What is birthdate of {{quiz.name}}?</strong></h3>
+                                <form>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Enter Birthdate..." 
+                                            [(ngModel)]='answer1' name="answer1" (keyup.enter)="check1()">  YYYY-MM-DD 
+                                        </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <a class="btn btn-default btn-primary" (click)="show = !show"><strong><h3>PLAY AGAIN</h3></strong></a>                        
+
+                        <ng-template #elseBlock>
+                        <div class="q2">
+                            <h3 class="title"><strong>{{quiz.name}} is also known as?</strong></h3>
+                            <form>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Enter name..." 
+                                        [(ngModel)]='answer2' name="answer2" (keyup.enter)="check2()">
+                                    </div>
+                            </form>
+                            </div></ng-template>
+                    </div>
+                <div>
+            </div>
+        </div>
+    </div>
+</div>

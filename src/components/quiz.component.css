@@ -1,0 +1,17 @@
+.img-responsive {
+    height: 500px;
+    width: 400px;
+}
+
+.panel-title{
+ text-align: center;
+ font-size: 30px;    
+}
+
+h4 {
+    text-align: justify;
+}
+
+input {
+    border: 1px solid black;
+}

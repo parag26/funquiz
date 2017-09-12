@@ -1,0 +1,58 @@
+<nav class="navbar navbar-inverse">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">FUNQUIZ</a>
+          </div>
+          <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+             
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+  
+  <div class="container">
+        <div class="jumbotron">
+            <div class="container">
+                <h1>Search Any Actor</h1>
+                <p>Search for an actor and play a simple quiz!!!</p> 
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Enter Actor name..." 
+                        [(ngModel)]=searchstring name="searchstring" (keyup)="getActors()">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div *ngIf='actors' class="panel panel-default">
+                <div class="panel-heading">
+                        <h3 class="panel-title">Search Results</h3>    
+                    </div> 
+                    <div class="panel-body">
+                        <div class="row">
+                            <div *ngFor="let actor of actors;let i=index" class="col-md-2">
+                                <div *ngIf="i < 6">
+                                    <img *ngIf="actor.profile_path" class="thumbnail" routerLink="/actor/{{actor.id}}" src="http://image.tmdb.org/t/p/w500/{{actor.profile_path}}">
+                                    <h4>{{actor.name}}</h4>  
+                                    <p>{{actor.place_of_birth}}</p>  
+                                    <p><a class="btn btn-default" routerLink="/actor/{{actor.id}}">View Details</a></p>
+                                </div>
+                            </div>    
+                        </div>    
+                    </div>
+        </div>
+
+  </div>
+  
+  <hr>
+  
+  <footer>
+      <p>&copy; 2017 FUNQUIZ</p>    
+  </footer>
